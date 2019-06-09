@@ -6,8 +6,11 @@ const {Image} = require('../models/index');
 
 const ctrl = {}
 
-ctrl.index = (req,res)=>{
-    res.send('Image page');
+ctrl.index = async (req,res)=>{
+    //req.params.nombreVariable -> Obtiene el valor de la variable desde el url
+    const image = await Image.findOne({filename:{$regex: req.params.image_id}});
+    console.log(image)
+    res.render('image',{image});
 }
 
 ctrl.create =  (req,res)=>{
@@ -43,7 +46,7 @@ ctrl.create =  (req,res)=>{
                 const imgSaved = await newImg.save();
                 
                 //Redirecciona la pagina a la siguiente url
-                res.send('WORKS');
+                res.redirect('/images/'+imgUrl);
             
             } else {
                 //En caso de que el archivo no sea valido

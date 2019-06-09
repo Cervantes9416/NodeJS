@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header bg-primary">
         <div class="card-title text-white">
-            <i class="far fa-image"></i> Carga a la imagen
+            <h3><i class="far fa-image"></i> Carga a la imagen</h3>
         </div>
     </div>
     <div class="card-header">
@@ -34,14 +34,14 @@
 
 <div class="card mt-2">
     <div class="card-header bg-primary text-white">
-        <h3><i class="far fa-image">Subidas recientes</i></h3>
+        <h3><i class="fas fa-cloud-upload-alt"></i> Subidas recientes</i></h3>
     </div>
     <div class="card-body">
         <div class="row">
             {{#each images}}
             <div class="col-md-4">
                 <a href="/images/{{uniqueId}}">
-                    <img src="../public/upload/{{filename}}" alt="" class="w-100 h-100 img-thumbnail">
+                    <img src="../public/upload/{{filename}}" alt="" class="w-100 h-100 img-thumbnail image-cover">
                 </a>
             </div>
             {{/each}}
